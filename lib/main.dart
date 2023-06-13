@@ -1,34 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:samjhna_birsana/router.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(const ProviderScope(
+    child: BirsanaApp(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class BirsanaApp extends ConsumerWidget {
+  const BirsanaApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: const Text(''),
+  Widget build(BuildContext context, WidgetRef ref) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+
+    final router = ref.watch(birsanaProvider);
+
+    return MaterialApp.router(
+      title: 'Birsana',
+      debugShowCheckedModeBanner: false,
+      routeInformationParser: router.routeInformationParser,
+      routerDelegate: router.routerDelegate,
+      routeInformationProvider: router.routeInformationProvider,
+      builder: (_, child) => child!,
     );
   }
 }
