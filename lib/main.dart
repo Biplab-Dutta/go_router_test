@@ -18,7 +18,7 @@ class BirsanaApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-    final router = ref.watch(birsanaProvider);
+    final router = ref.watch(goRouterProvider);
 
     return MaterialApp.router(
       title: 'Birsana',
