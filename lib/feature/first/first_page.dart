@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class FirstPage extends ConsumerWidget {
+class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
 
   static String routeName = 'first';
-  static String route = '/';
+  static String route = '/first';
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      color: Colors.blue,
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cart'),
+      ),
+      body: const Center(
+        child: Column(
+          children: [Text('Cart Screen')],
+        ),
+      ),
     );
   }
 }

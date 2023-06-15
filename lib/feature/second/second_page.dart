@@ -6,7 +6,7 @@ class SecondPage extends ConsumerWidget {
   const SecondPage({super.key});
 
   static String routeName = 'second';
-  static String route = '/';
+  static String route = '/second';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
