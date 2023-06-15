@@ -18,7 +18,7 @@ class _BottomNavigationWidgetState extends ConsumerState<BottomNavigationWidget>
     final position = ref.watch(homeControllerProvider);
 
     return BottomNavigationBar(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.white,
       currentIndex: position,
       onTap: (index) {
         ref.read(homeControllerProvider.notifier).position = index;
@@ -32,11 +32,11 @@ class _BottomNavigationWidgetState extends ConsumerState<BottomNavigationWidget>
           default:
         }
       },
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.grey,
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.grey.shade300,
       selectedLabelStyle: const TextStyle(
         color: Colors.white,
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: FontWeight.w700,
       ),
       unselectedLabelStyle: const TextStyle(
@@ -45,11 +45,10 @@ class _BottomNavigationWidgetState extends ConsumerState<BottomNavigationWidget>
         fontWeight: FontWeight.w500,
       ),
       items: const [
-        BottomNavigationBarItem(activeIcon: Icon(Icons.home), icon: Icon(Icons.home_work), label: 'Dashboard'),
-        BottomNavigationBarItem(activeIcon: Icon(Icons.shopify), icon: Icon(Icons.shopping_bag), label: 'Cart'),
-        BottomNavigationBarItem(activeIcon: Icon(Icons.settings), icon: Icon(Icons.settings_applications), label: 'Setting'),
+        BottomNavigationBarItem(icon: Icon(Icons.calendar_month, size: 30), label: 'Calender'),
+        BottomNavigationBarItem(icon: Icon(Icons.access_time_filled_rounded, size: 30), label: 'History'),
+        BottomNavigationBarItem(icon: Icon(Icons.account_circle, size: 30), label: 'Profile'),
       ],
     );
   }
-
 }
